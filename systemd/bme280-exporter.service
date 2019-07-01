@@ -1,0 +1,13 @@
+[Unit]
+Description=Prometheus Exporter for BME280 I2C sensor
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/git/bme280-exporter
+ExecStart=/home/pi/git/bme280-exporter/venv/bin/python exporter.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
